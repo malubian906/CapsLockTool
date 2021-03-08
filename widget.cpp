@@ -39,7 +39,7 @@ void Widget::InitConnect()
             break;
         case UPPER:
             Func_Upper();
-             break;
+            break;
         }
     });
 }
@@ -47,6 +47,12 @@ void Widget::InitConnect()
 void Widget::Func_Upper()
 {
     QString src = ui->te_original->toPlainText();
+
+    QTextCursor tc = ui->te_original->textCursor();
+    tc.setPosition(3,QTextCursor::KeepAnchor);
+
+
+
     ui->te_uppercase->clear();
     ui->te_uppercase->setText(src.toUpper());
 }
